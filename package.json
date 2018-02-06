@@ -1,6 +1,6 @@
 {
   "name": "liqd-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fast and Simple parser",
   "main": "lib/parser.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "liqd-parser"
+    "url": "https://github.com/radixxko/liqd-parser"
   },
   "keywords": [
     "liqd",
