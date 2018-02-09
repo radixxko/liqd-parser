@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/radixxko/liqd-parser"
+    "url": "git://github.com/radixxko/liqd-parser.git"
   },
   "keywords": [
     "liqd",
