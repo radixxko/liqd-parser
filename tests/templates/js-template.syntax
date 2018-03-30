@@ -1,0 +1,48 @@
+::alphanumeric
+    /[a-zA-Z_][a-zA-Z_0-9]*/
+
+::binary_logical_operator
+    ==
+    !=
+    &&
+    ||
+    <=
+    <
+    >=
+    >
+
+@attributes
+    ...attribute=""
+
+@tag
+    < ::alphanumeric @attributes />
+    < ::alphanumeric @attributes > @block </ $tag >
+
+@for
+    for ( $iterator::alphanumeric of $list::@expression ) { $block::@ }
+
+@expression
+    ::string
+    ::alphanumeric
+    ::alphanumeric.@expression
+    ::alphanumeric.@expression
+    ( @expression )
+    ::alphanumeric( @expression )
+
+@if
+    if ( $condition::@ ) { $block::@ }
+
+@condition
+    true
+    false
+    ( @condition )
+    ! @condition
+    @condition ::binary_logical_operator @condition
+
+@block
+    @if
+    @for
+    @tag
+
+@main
+    @block

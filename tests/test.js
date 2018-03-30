@@ -3,8 +3,10 @@
 const fs = require('fs');
 const Parser = require('../lib/parser');
 
-const parser = new Parser({ quotes: '\'"', tokens: '.,;:(){}[]-+<>%/*=@?|&' }, fs.readFileSync( __dirname + '/templates/javascript.syntax', 'utf8'));
+let definition = 'js-template';
 
-let template = parser.parse( fs.readFileSync( __dirname + '/templates/javascript.template', 'utf8') );
+const parser = new Parser({ quotes: '\'"', tokens: '.,;:(){}[]-+<>%/*=@?|&' }, fs.readFileSync( __dirname + '/templates/'+definition+'.syntax', 'utf8'));
 
-console.log({ template, syntax: parser.syntax });
+let template = parser.parse( fs.readFileSync( __dirname + '/templates/'+definition+'.template', 'utf8') );
+
+//console.log({ template, syntax: parser.syntax });
