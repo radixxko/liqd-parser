@@ -1,0 +1,6 @@
+<style type="text/javascript"></style>
+<div id="products"></div>
+for( product of products )
+{
+		<div class="product" id="product"></div>
+}

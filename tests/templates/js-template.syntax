@@ -19,18 +19,18 @@
     < ::alphanumeric @attributes > @block </ $tag >
 
 @for
-    for ( $iterator::alphanumeric of $list::@expression ) { $block::@ }
+    for ( ::alphanumeric of ::@expression ) { @block }
 
 @expression
     ::string
     ::alphanumeric
-    ::alphanumeric.@expression
-    ::alphanumeric.@expression
+    ::alphanumeric . @expression
+    ::alphanumeric . @expression
     ( @expression )
-    ::alphanumeric( @expression )
+    ::alphanumeric ( @expression )
 
 @if
-    if ( $condition::@ ) { $block::@ }
+    if ( @condition ) { @block }
 
 @condition
     true

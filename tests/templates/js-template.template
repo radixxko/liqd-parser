@@ -1,9 +1,9 @@
 for( janko of hrasko )
 {
-    <List></List>
+    <List>
+      for( product of Product.get(categoryID, 100) )
+      {
+          <Product product={product} />
+      }
+    </List>
 }
-for( product of Product.get(categoryID, 100) )
-{
-    <Product product={product} />
-}
-</List>
