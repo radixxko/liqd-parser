@@ -4,3 +4,15 @@ for( product of products )
 {
 		<div class="product" id="product"></div>
 }
+if( x )
+{
+	a
+}
+else if ( c )
+{
+	b
+}
+else
+{
+	t
+}

@@ -1,36 +1,52 @@
 :alphanumeric
 	/[a-zA-Z_][a-zA-Z_0-9]*/
 
-@variable
-@iterator
-@definition
-@list
-@condition
-@tagname
-@name
-@value
-  :alphanumeric
+:attribute_value
+	/[a-zA-Z_][a-zA-Z_0-9\/]*/
 
-@if
-  if ( @condition ) { @block }
+:template_name
+	/[A-Z][a-zA-Z_0-9]*/
 
-@for
-  for ( @iterator of @list ) { @block }
+:template_parameter
+	$parameter:alphanumeric = $value:string
+	$parameter:alphanumeric = { $:block }
 
-@attribute
-	@name = " @value "
+:tag_name
+	/[a-z]+/
 
-@tag
-	< $tag:alphanumeric ...@attribute > < / $tag >
+:tag_attribute
+	$attribute:alphanumeric = " $value:attribute_value "
+
+:if
+	if ( $condition:alphanumeric ) { $then:block } else ...$else:else_if
+	if ( $condition:alphanumeric ) { $then:block } else { $else:block }
+	if ( $condition:alphanumeric ) { $then:block }
+
+:else_if
+	$:if
+
+:for
+	for ( $iterator:alphanumeric of $list:alphanumeric ) { $:block }
+
+:template
+	< $name:template_name ?...parameters$:template_parameter >
+
+:tag
+	< $name:tag_name ?...$attributes:tag_attribute > ?$:block < / $name >
+	< $name:tag_name / >
+
+:definition
+	/[a-zA-Z_0-9]+/
 
 :command
-  @if
-  @for
-  @definition
-	@tag
+	$:if
+	$:for
+	$:definition
+	$:tag
+	$:template
 
-@block
-  ...:command
+:block
+	...:command
 
-@main
-  @block
+:main
+	$:block

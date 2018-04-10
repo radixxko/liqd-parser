@@ -1,0 +1,45 @@
+:alphanumeric
+	/[a-zA-Z_][a-zA-Z_0-9]*/
+
+:template_name
+	/[A-Z][a-zA-Z_0-9]*/
+
+:template_parameter
+	$parameter:alphanumeric = $value:string
+	$parameter:alphanumeric = { $:block }
+
+:tag_name
+	/[a-z]+/
+
+:tag_attribute
+	$attribute:alphanumeric = $value:string
+
+:if
+	if ( $condition:alphanumeric ) { $:block } else { $else_block:block }
+	if ( $condition:alphanumeric ) { $:block }
+
+:for
+	for ( $:iterator of $:list ) { $:block }
+
+:template
+	< $name:template_name ?...$:template_parameter >
+
+:tag
+	< $name:tag_name ?...$:tag_attribute > ?$:block < / $name >
+	< $name:tag_name / >
+
+:definition
+	/[A-Z][a-zA-Z_0-9]*/
+
+:command
+	$:if
+	$:for
+	$:definition
+	$:tag
+	$:template
+
+:block
+	...:command
+
+:main
+	$:block
