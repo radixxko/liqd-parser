@@ -1,0 +1,57 @@
+<html>
+	<head>
+		rosto.volam()
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo"></div>
+			<div id="search" placeholder="search"></div>
+		</div>
+		<div id="content">
+			<div id="menu">
+				for( item of menu )
+				{
+					<div class="menu-item">
+						item
+					</div>
+				}
+			</div>
+			<div id="screen">
+				<div class="left">
+					<div id="accounts" class="tab" infinite>
+						for( account of accounts )
+						{
+							<div class="row">
+								account
+							</div>
+						}
+					</div>
+					<div id="sessions" class="tab">
+						for( session of sessions )
+						{
+							<div class="row">
+								session
+							</div>
+						}
+					</div>
+					<div id="incidents" class="tab">
+						for( incident of incidents )
+						{
+							<div class="row">
+								incident
+							</div>
+						}
+					</div>
+					<div id="tokens" class="tab">
+						for( token of tokens )
+						{
+							<div class="row">
+								token
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

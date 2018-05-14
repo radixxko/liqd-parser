@@ -1,0 +1,23 @@
+<div id="header">
+	if( test )
+	{
+		<img id="logo" src="logo" />
+		<div id="menu">
+			for( category of categories )
+			{
+				<div class="menu-category">
+					for( item of category )
+					{
+						<div class="menu-category-item">
+							item
+						</div>
+					}
+				</div>
+			}
+		</div>
+	}
+	else
+	{
+		<img id="logo" src="logo" />
+	}
+</div>

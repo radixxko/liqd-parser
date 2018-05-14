@@ -1,6 +1,9 @@
 :alphanumeric
 	/[a-zA-Z_][a-zA-Z_0-9]*/
 
+:infinite
+	infinite
+
 :template_name
 	/[A-Z][a-zA-Z_0-9]*/
 
@@ -25,7 +28,7 @@
 	< $name:template_name ?...$:template_parameter >
 
 :tag
-	< $name:tag_name ?...$:tag_attribute > ?$:block < / $name >
+	< $name:tag_name ?...$:tag_attribute ?$infinite:infinite> ?$:block < / $name >
 	< $name:tag_name / >
 
 :definition

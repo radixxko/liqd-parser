@@ -1,0 +1,24 @@
+
+
+for( user of User.get( Filter, [ sessions ] ) )
+{
+	<div class="row">
+		for( incident of user.incidents )
+		{
+			incident
+
+			incident.radius
+		}
+	</div>
+}
+
+
+<dasda as das />
+
+
+for( user of User.get( Filter ) )
+{
+	<div class="row">
+		user.session
+	</div>
+}
