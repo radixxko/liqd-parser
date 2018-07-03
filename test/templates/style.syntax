@@ -1,0 +1,36 @@
+:comment
+	/\/\*.*?\*\//
+	/\/\/.*?\n/
+
+:property_name
+	/[a-zA-Z_\-][a-zA-Z0-9_\-]*/
+
+:variable_name
+	/\$([a-zA-Z_][a-zA-Z0-9_\-]*)/1
+
+:generator_name
+	/@([a-zA-Z_][a-zA-Z0-9_\-]*)/1
+
+:value
+	/([^;{}]+?)\s*(?=;)/1
+
+:selector
+	/([^${};@\/][^${};@]*?)\s*(?=\{)/1
+
+:variable_definition
+	$name:variable_name : $:value ;
+
+:generator_definition
+	$name:generator_name { ?...$definitions:definition }
+
+:definition
+	$property:property_name : $:value ;
+	$:selector { ?...$definitions:definition }
+	$generator:generator_name ;
+	$:variable_definition
+	$keyword:/(@(font\-face|keyframes|media)[^{]*?)\s*(?=\{)/1 { ?...$definitions:definition }
+	$:generator_definition
+	$:comment
+
+:main
+	...$definitions:definition

@@ -3,7 +3,7 @@
 const fs = require('fs');
 const Parser = require('../lib/parser');
 
-let definition = 'test';
+let definition = 'style';
 
 function elapsed( text, start )
 {
@@ -20,10 +20,12 @@ elapsed( 'Syntax parsing', parserStart );
 
 let templateStart = process.hrtime();
 
-let code = parser.parse( fs.readFileSync( __dirname + '/templates/'+definition+'.result', 'utf8') );
+let code = parser.parse( fs.readFileSync( __dirname + '/templates/'+definition+'.source', 'utf8') );
 
 elapsed( 'Template parsing', templateStart );
 
+console.log( JSON.stringify( parser.syntax, null, '  ' ) );
+console.log('---------');
 console.log( JSON.stringify( code, null, '  ' ) );
 
 process.exit();
@@ -125,7 +127,7 @@ function renderPromise( code )
 
 			if( tag.infinite )
 			{
-				
+
 			}
 
 			if( tag.block )

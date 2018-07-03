@@ -1,0 +1,53 @@
+/* janko hrasko */
+a
+{
+	color: red;
+	@media (width < 100)
+	{
+		color: blue;
+	}
+}
+@keyframes jozo
+{
+	0% { left: 0; }
+	100% { left: 100px; }
+}
+@media super{
+$font: 'Tahoma', 'Helvetica' ;
+$font3: $font2;
+$font2: $font;
+$color: red;
+$width: 8px;
+@border-radius{ border-radius: 5px; }
+@box{ top:0; left:0; right:0; bottom:0; color: $color; }
+html, body
+{
+	-webkit-border-radius: 5px;
+	margin: 0;
+	$color: rgba(255,0,0,0.2);
+
+	&:hover, &:focus{ $color:magenta; color: $color; @box; }
+
+	$font: 'Tahoma', 'Helvetica' ;
+	a, b
+	{
+		padding: 6px;
+		padding: 7px;
+		@border-radius; // jozo je tu
+		padding: 0px;
+		padding: $width $width $width $width;
+		@box;
+
+		&:hover
+		{
+			color: red;
+
+			.active
+			{
+				color: blue;
+			}
+		}
+
+		body.noscroll &{ color:silver; }
+	}
+}}
