@@ -1,0 +1,12 @@
+:if
+    if
+
+:ifthen
+    if then
+
+:command
+    $:if
+    $:ifthen
+
+:main
+    ...$:command
